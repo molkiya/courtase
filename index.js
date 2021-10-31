@@ -41,8 +41,8 @@ async function createElements() {
         `
 
         otherinfoContainer.innerHTML = `
-        <h2>Date: ${item.decision_date}</h2>
-        <h2>Number of case: ${item.docket_number}</h2>
+        <h3>Date: ${item.decision_date}</h3>
+        <h3>Number of case: ${item.docket_number}</h3>
         `
 
         casesColumnContainer.appendChild(casesColumn)
