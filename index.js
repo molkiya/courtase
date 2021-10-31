@@ -1,4 +1,4 @@
-const API_KEY = '207bd7f40150417e1002a825942ac75437ca6319';
+const API_KEY = 'YOUR API KEY';
 
 async function getResponse(results) {
 
