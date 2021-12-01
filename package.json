@@ -1,0 +1,19 @@
+{
+  "name": "courtase",
+  "version": "1.0.0",
+  "description": "The App for generating are random num of law case in USA Law System",
+  "main": "index.html",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molkiya/randomisecourtcase.git"
+  },
+  "author": "Marat Kiiamov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/molkiya/randomisecourtcase/issues"
+  },
+  "homepage": "https://github.com/molkiya/randomisecourtcase#readme"
+}
