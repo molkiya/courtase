@@ -1,3 +1,8 @@
+const casesColumnContainer = document.querySelector('#casesColumnContainer');
+const casesColumn = document.querySelector('#casesColumn');
+const cases = document.querySelector('#cases');
+const otherinfoContainer = document.querySelector('#otherinfoContainer');
+const loading = document.getElementById('#loading')
 const API_KEY = 'YOUR API KEY';
 
 async function getResponse(results) {
@@ -16,33 +21,45 @@ async function getResponse(results) {
                 );
                 results.push(await response.json());
             }
-        } catch {
-            alert(e)
+        } catch (e) {
+            alert(`Something gone wrong ${e}`)
+            console.log(e)
         }
+        console.log(results)
     } catch (e) {
-        console.log(new Error(e));
+        console.log(e);
     }
 }
 
 async function createElements() {
-    let results = [];
-    await getResponse(results);
-    results.forEach(item => {
+    const results = [];
+    await getResponse(results)
+    results.map(item => {
 
-        const casesColumnContainer = document.querySelector('#casesColumnContainer');
-        const casesColumn = document.querySelector('#casesColumn');
-        const cases = document.querySelector('#cases');
-        const otherinfoContainer = document.querySelector('#otherinfoContainer');
+        let docketNumber
+        let date
+
+        if ( item.docket_number === "" ) {
+            docketNumber = 'none'
+        } else {
+            docketNumber = item.docket_number
+        }
+
+        if ( item.decision_date === "" ) {
+            date = 'none'
+        } else {
+            date = item.decision_date
+        }
 
         cases.innerHTML = `
         <h1>${item.name}</h1>
         <h2>${item.court.name}</h2>
-        <a href="${item.frontend_url}">Link for case</a>
+        <a class="caseLink" href="${item.frontend_url}">Link for case</a>
         `
 
         otherinfoContainer.innerHTML = `
-        <h3>Date: ${item.decision_date}</h3>
-        <h3>Number of case: ${item.docket_number}</h3>
+        <h3>Date: ${date}</h3>
+        <h3>Number of case: ${docketNumber}</h3>
         `
 
         casesColumnContainer.appendChild(casesColumn)

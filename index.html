@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAW APP | Random Case of USA LAW SYSTEM</title>
+    <title>Courtase</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="icon" href="./media/favicon.ico" type="image/ico">
 </head>
 <body class="body">
     <div class="header_container">
         <div class="header">
-            <a class="header_text" href="index.html">Different US Law Cases</a>
+            <a class="header_text" href="index.html">Different US Court Cases</a>
             <div class="search_container">
-                <button class="search_button" id="btn" onclick="createElements()">Generate</button>
+                <button class="search_button" id="lawgenerator" onclick="createElements()">Random</button>
             </div>
         </div>
-        <div class="header_bottom"></div>
     </div>
     <div class="casesColumnContainer" id="casesColumnContainer">
         <div class="casesColumn" id="casesColumn">
             <div class="cases" id="cases">
-                Get the random law case
-                <div class="otherinfoContainer" id="otherinfoContainer">
-                    <a href="https://case.law/">Caselaw Access Project / Harvard Law School</a>
-                </div>
+                <p>Randomise various court case</p>
+                <p>Commercial use not allowed</p>
             </div>
+            <div class="otherinfoContainer" id="otherinfoContainer"></div>
         </div>
+    </div>
+    <div class="footer">
+        <p class="footerText">created at source:<a href="https://case.law/" class="footerLink">Caselaw Access Project / Harvard Law School</a></p>
     </div>
     <script src="./index.js"></script>
 </body>
