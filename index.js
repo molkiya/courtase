@@ -2,15 +2,14 @@ const casesColumnContainer = document.querySelector('#casesColumnContainer');
 const casesColumn = document.querySelector('#casesColumn');
 const cases = document.querySelector('#cases');
 const otherinfoContainer = document.querySelector('#otherinfoContainer');
-const loading = document.getElementById('#loading')
-const API_KEY = 'YOUR API KEY';
+
+const API_KEY = 'YOUR_API_KEY';
 
 async function getResponse(results) {
-
     const arrRandom = []
-
-    arrRandom.push(Math.floor(Math.random(0.7e6) * 1e6));
-
+    arrRandom.push(
+        Math.floor(Math.random(0.7e6) * 1e6)
+    );
     try {
         results.length = 0;
         try {
@@ -35,36 +34,25 @@ async function createElements() {
     const results = [];
     await getResponse(results)
     results.map(item => {
+        let docketNumber,
+            date
 
-        let docketNumber
-        let date
-
-        if ( item.docket_number === "" ) {
-            docketNumber = 'none'
-        } else {
-            docketNumber = item.docket_number
-        }
-
-        if ( item.decision_date === "" ) {
-            date = 'none'
-        } else {
-            date = item.decision_date
-        }
+        item.docket_number === "" ? docketNumber = "none" : docketNumber = item.docket_number
+        item.decision_date === "" ? date = "none" : date = item.decision_date
 
         cases.innerHTML = `
-        <h1>${item.name}</h1>
-        <h2>${item.court.name}</h2>
-        <a class="caseLink" href="${item.frontend_url}">Link for case</a>
+            <h1>${item.name}</h1>
+            <h2>${item.court.name}</h2>
+            <a class="caseLink" href="${item.frontend_url}">Link for case</a>
         `
 
         otherinfoContainer.innerHTML = `
-        <h3>Date: ${date}</h3>
-        <h3>Number of case: ${docketNumber}</h3>
+            <h3>Date: ${date}</h3>
+            <h3>Number of case: ${docketNumber}</h3>
         `
 
         casesColumnContainer.appendChild(casesColumn)
         casesColumn.appendChild(cases)
         cases.appendChild(otherinfoContainer)
-
     })
 }
